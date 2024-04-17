@@ -1,24 +1,22 @@
 import "./stylesheets/reset.css";
-import {
-  createBrowserRouter,
-  RouterProvider,
-  createRoutesFromElements,
-  Route,
-  Routes,
-} from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 
 import Home from "./pages/Home";
-
+import ErrorPage from "./pages/ErrorPage";
 import Shop from "./pages/Shop";
+import About from "./pages/About";
+import MainLayout from "./Layouts/MainLayout";
 
 function App() {
   return (
-    <>
-      <Routes>
-        <Route path="/" element={<Home />}></Route>
+    <Routes>
+      <Route path="/" element={<MainLayout />}>
+        <Route index element={<Home />}></Route>
+        <Route path="/about" element={<About />}></Route>
         <Route path="/shop" element={<Shop />}></Route>
-      </Routes>
-    </>
+        <Route path="*" element={<ErrorPage />} />
+      </Route>
+    </Routes>
   );
 }
 
