@@ -1,3 +1,7 @@
 export default function Shop() {
-  return <div>Shop</div>;
+  return (
+    <div>
+      <p>Shop</p>
+    </div>
+  );
 }
