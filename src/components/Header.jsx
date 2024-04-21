@@ -1,5 +1,7 @@
 import { NavLink } from "react-router-dom";
 import { useState } from "react";
+import Logo from "../assets/img/logo.png";
+
 export default function Header() {
   const [cartStatus, setCartStatus] = useState(false);
   const handleClick = () => {
@@ -11,6 +13,7 @@ export default function Header() {
         <li className="inline">
           <NavLink className=" header text-lg p-3 inline" to="/">
             Home
+            <img src={Logo} alt="" />
           </NavLink>
         </li>
         <li className="inline">
