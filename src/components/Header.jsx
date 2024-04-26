@@ -7,7 +7,7 @@ import { mdiBasket } from "@mdi/js";
 export default function Header() {
   const navItems = [
     ["/shop", "Shop"],
-    ["/about", "About"],
+    ["", "Log in"],
     ["/contact", "Contact"],
   ];
   const [cartStatus, setCartStatus] = useState(false);
@@ -22,7 +22,18 @@ export default function Header() {
       <ul className="text-lg  p-5 text-white">
         {navItems.map(([url, title], index) => (
           <li key={index} className="inline mx-7 text-3xl ">
-            <NavLink to={url} className="border-red-500">
+            <NavLink
+              to={url}
+              exact={url === ""}
+              onClick={(e) => {
+                if (url === "") {
+                  e.preventDefault();
+                  // Refresh the current page
+                  window.location.reload();
+                }
+              }}
+              className="border-red-500"
+            >
               {title}
             </NavLink>
           </li>
