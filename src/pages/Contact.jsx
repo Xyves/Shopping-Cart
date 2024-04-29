@@ -18,12 +18,12 @@ export default function Contact() {
                 <input type="text" placeholder="" id="surname" />
               </p>
               <p>
-                <label htmlFor="">Email:</label>
-                <input type="text" placeholder="" id="" />
+                <label htmlFor="email">Email:</label>
+                <input type="text" placeholder="" id="email" />
               </p>
               <p>
-                <label htmlFor="">Phone:</label>
-                <input type="text" placeholder="" id="" />
+                <label htmlFor="phoneNumber">Phone:</label>
+                <input type="text" placeholder="" id="phoneNumber" />
               </p>
               <p>
                 <textarea name="" id="" cols="30" rows="10"></textarea>
