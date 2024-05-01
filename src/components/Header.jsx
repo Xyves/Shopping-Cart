@@ -15,36 +15,39 @@ export default function Header() {
     cartStatus ? setCartStatus(false) : setCartStatus(true);
   };
   return (
-    <header className="flex justify-center items-center  bg-[#654062] border-4 border-black border-solid">
-      <NavLink className=" header  p-1 inline mr-12" to="/">
-        <img src={Logo} alt="shop logo" className="h-28" />
-      </NavLink>
-      <ul className="text-lg  p-5 text-white">
-        {navItems.map(([url, title], index) => (
-          <li key={index} className="inline mx-7 text-3xl ">
-            <NavLink
-              to={url}
-              exact={url === ""}
-              onClick={(e) => {
-                if (url === "") {
-                  e.preventDefault();
-                  // Refresh the current page
-                  window.location.reload();
-                }
-              }}
-              className="border-red-500"
-            >
-              {title}
-            </NavLink>
-          </li>
-        ))}
-      </ul>
-      <Icon
-        path={mdiBasket}
-        size={1.4}
-        onclick={handleClick}
-        className="text-white"
-      />
+    <header className=" bg-[#6C0345] mb-5">
+      <div className="wrap flex items-center justify-center">
+        <NavLink className=" header inline mr-12" to="/">
+          <img src={Logo} alt="shop logo" className=" w-32" />
+        </NavLink>
+        <ul className="text-lg  p-5 text-white">
+          {navItems.map(([url, title], index) => (
+            <li key={index} className="inline mx-7 text-3xl ">
+              <NavLink
+                to={url}
+                exact={url === ""}
+                onClick={(e) => {
+                  if (url === "") {
+                    e.preventDefault();
+                    // Refresh the current page
+                    window.location.reload();
+                  }
+                }}
+                className="border-red-500"
+              >
+                {title}
+              </NavLink>
+            </li>
+          ))}
+        </ul>
+        <Icon
+          path={mdiBasket}
+          size={1.4}
+          onClick={handleClick}
+          className="text-white cursor-pointer"
+        />
+      </div>
+      <div className="line bottom w-full left-0  h-[5px] bg-custom-gradient "></div>
     </header>
   );
 }
