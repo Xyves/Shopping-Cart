@@ -2,7 +2,7 @@ import devteam from "../assets/img/devteam.jpg";
 import { NavLink } from "react-router-dom";
 export default function Home() {
   return (
-    <div className="w-full bg-main flex justify-center">
+    <div className="w-full  flex justify-center text-white flex-1">
       <div className="left-side h-full w-1/2">
         <h1 className="text-center">Electro</h1>
         <h2>Shop Smarter, Not Harder</h2>

@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Contact() {
   return (
-    <div>
+    <div className="flex-1">
       <main>
         <p className="text-center">Contact</p>
         <div className="form">

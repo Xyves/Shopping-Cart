@@ -1,44 +1,62 @@
-import React from "react";
-const generateQuantity = () => {
-  Math.floor(Math.floor() * 9 + 1);
-};
+import { useState } from "react";
 export default function Item(props) {
   const { title, desc, img, price, description } = props;
-  return (
-    <div className="item bg-red-700 flex  wrap justify-center ">
-      <div className=" flex mx-4 items-center w-3/4 ">
-        <div className="left-content  h-3/4 w-3/4">
-          <img src={img} alt="" className="h-full w-full" />
-        </div>
-      </div>
-      <div className="right-content my-6 wrap text-center w-3/4">
-        <p className="font-bold text-xl">{title}</p>
-        <p className="text-[11px] flex-end text-center">{desc}X</p>
-        <div className="rating"></div>
+  const [inputValue, setInputValue] = useState(1);
 
-        <p>{price}$</p>
-        <div className="colors mt-4">
-          <p>Choose your colors:</p>
-          <button className="rounded-full bg-black w-5 h-5 mx-2"></button>
-          <button className="rounded-full bg-white w-5 h-5"></button>
+  const handleInputChange = (e) => {
+    let value = e.target.value;
+    let numValue = Number(value);
+    if (!isNaN(numValue)) {
+      if (numValue > 99) {
+        value = "99";
+      } else if (numValue < 0) {
+        value = "0";
+      }
+    } else {
+      value = "";
+    }
+    setInputValue(value);
+  };
+  const handleAddition = (e) => {
+    const currentValue = Number(inputValue);
+    currentValue < 99 ? setInputValue(String(currentValue + 1)) : null;
+  };
+  const handleSubtraction = (e) => {
+    const currentValue = Number(inputValue);
+    currentValue > 1 ? setInputValue(String(currentValue - 1)) : null;
+  };
+  return (
+    <div className="card flex flex-col  bg-purple-300 justify-center items-center">
+      <div className="top  w-1/3  flex ">
+        <img src={img} alt="" className=" h-34 my-5" />
+      </div>
+      <div className="middle items-center self-start">
+        <p className="font-bold text-xl ">{title}</p>
+        <div className="rating">
+          <div className="rating-stars"></div>
+          <div className="rating-num"></div>
         </div>
-        <div className="bottom-content my-5 inline">
-          <label htmlFor="quantity text-sm">Quantity:</label>
+        <div className="price">{price}</div>
+      </div>
+      <div className="bottom">
+        <div className="quantity">
+          <button onClick={handleSubtraction}>-</button>
           <input
             type="number"
             name="quantity"
             min="1"
-            max="15"
+            max="40"
             step="1"
-            className=" ml-2 h-12"
+            className=" mx-2 p-2"
             placeholder="1"
-            // TBA border
+            value={inputValue}
+            onChange={handleInputChange}
           />
-
-          <button className="bg-blue-500 p-2 rounded-md text-white inline">
-            Add to cart
-          </button>
+          <button onClick={handleAddition}>+</button>
         </div>
+        <button className="bg-blue-500 p-2 rounded-md text-white inline items-center jusitfy-center my-2">
+          Add to cart
+        </button>
       </div>
     </div>
   );

@@ -4,7 +4,7 @@ import { Outlet } from "react-router-dom";
 import Footer from "../components/Footer";
 export default function MainLayout() {
   return (
-    <div>
+    <div className="flex flex-col min-h-[100vh]">
       <Header />
       <Outlet />
       <Footer />

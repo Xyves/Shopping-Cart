@@ -15,8 +15,8 @@ export default function Shop() {
   console.log(items);
 
   return (
-    <div className="flex justify-center">
-      <div className="grid justify-items-center gap-5 content-center justify-center shopContainer w-[80%] grid-cols-3	bg-yellow-200">
+    <div className="flex justify-center ">
+      <div className="grid justify-items-center gap-5 content-center justify-center shopContainer w-[80%] grid-cols-4	bg-yellow-200 mb-24">
         {items.map((item) => (
           <ProductCard
             key={item.id}
