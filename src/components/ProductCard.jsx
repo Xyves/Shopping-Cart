@@ -10,7 +10,7 @@ export default function Item(props) {
       if (numValue > 99) {
         value = "99";
       } else if (numValue < 0) {
-        value = "0";
+        value = "1";
       }
     } else {
       value = "";
@@ -26,8 +26,8 @@ export default function Item(props) {
     currentValue > 1 ? setInputValue(String(currentValue - 1)) : null;
   };
   return (
-    <div className="card flex flex-col  bg-purple-300 justify-center items-center">
-      <div className="top  w-1/3  flex ">
+    <div className="card flex flex-col   justify-center items-center border-itemBorder border-2 border-solid my-5">
+      <div className="top  w-1/3  flex max-h-1/3 mt-2">
         <img src={img} alt="" className=" h-34 my-5" />
       </div>
       <div className="middle items-center self-start">
@@ -36,25 +36,35 @@ export default function Item(props) {
           <div className="rating-stars"></div>
           <div className="rating-num"></div>
         </div>
-        <div className="price">{price}</div>
+        <div className="price">{price}$</div>
       </div>
-      <div className="bottom">
+      <div className="bottom flex align-center flex-col justify-center">
         <div className="quantity">
-          <button onClick={handleSubtraction}>-</button>
+          <button
+            onClick={handleSubtraction}
+            className="border-1 border-solid border-black rounded-full bg-green-100 p-1"
+          >
+            -
+          </button>
           <input
             type="number"
             name="quantity"
             min="1"
             max="40"
             step="1"
-            className=" mx-2 p-2"
+            className=" mx-1 p-2 border-1 border-solid border-black "
             placeholder="1"
             value={inputValue}
             onChange={handleInputChange}
           />
-          <button onClick={handleAddition}>+</button>
+          <button
+            onClick={handleAddition}
+            className="border-1 border-solid border-black rounded-full bg-green-100 p-1"
+          >
+            +
+          </button>
         </div>
-        <button className="bg-blue-500 p-2 rounded-md text-white inline items-center jusitfy-center my-2">
+        <button className="bg-blue-500 p-3 rounded-md text-white   my-2">
           Add to cart
         </button>
       </div>
