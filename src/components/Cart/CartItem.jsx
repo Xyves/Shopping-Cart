@@ -1,10 +1,6 @@
-import React from "react";
-import { useState } from "react";
-useState;
+import PropTypes from "prop-types";
 export default function CartItem(props) {
-  const [inputQuantity, setInputQuantity] = useState(0);
-
-  const { title, img, price } = props;
+  const { title, img, price, quantity } = props;
   return (
     <div>
       <div className="item-img">
@@ -14,7 +10,7 @@ export default function CartItem(props) {
         <p>{title}</p>
       </div>
       <div className="quantity">
-        <input type="text" />
+        <input type="text" value={quantity} />
       </div>
       <div className="price">
         <p>{price}</p>
@@ -25,3 +21,9 @@ export default function CartItem(props) {
     </div>
   );
 }
+CartItem.propTypes = {
+  title: PropTypes.string,
+  img: PropTypes.string,
+  price: PropTypes.number,
+  quantity: PropTypes.number,
+};
