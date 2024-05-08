@@ -1,7 +1,34 @@
 import { useState } from "react";
+import { FaBagShopping } from "react-icons/fa6";
+import { useOutletContext } from "react-router-dom";
+
+import PropTypes from "prop-types";
 export default function Item(props) {
-  const { title, desc, img, price, description } = props;
+  const context = useOutletContext();
+
+  if (!context) {
+    console.error("useOutletContext is returning null");
+    return null; // or handle the case when context is null
+  }
+
+  const { cartItems, addToCart } = context;
+  const { title, img, price, id } = props;
   const [inputValue, setInputValue] = useState(1);
+  const [itemInCart, setItemInCart] = useState(false);
+
+  const handleAddingItem = (event) => {
+    console.log(inputValue);
+    event.preventDefault();
+    const newCartItem = {
+      id,
+      title,
+      img,
+      price,
+      quantity: inputValue,
+    };
+    addToCart(newCartItem);
+    setItemInCart(!itemInCart);
+  };
 
   const handleInputChange = (e) => {
     let value = e.target.value;
@@ -17,11 +44,11 @@ export default function Item(props) {
     }
     setInputValue(value);
   };
-  const handleAddition = (e) => {
+  const handleAddition = () => {
     const currentValue = Number(inputValue);
     currentValue < 99 ? setInputValue(String(currentValue + 1)) : null;
   };
-  const handleSubtraction = (e) => {
+  const handleSubtraction = () => {
     const currentValue = Number(inputValue);
     currentValue > 1 ? setInputValue(String(currentValue - 1)) : null;
   };
@@ -52,22 +79,46 @@ export default function Item(props) {
             min="1"
             max="40"
             step="1"
-            className=" mx-1 p-2 border-1 border-solid border-black "
+            className="mx-1 p-2 border-1 border-solid border-black"
             placeholder="1"
             value={inputValue}
             onChange={handleInputChange}
+            disabled={itemInCart}
           />
           <button
-            onClick={handleAddition}
             className="border-1 border-solid border-black rounded-full bg-green-100 p-1"
+            onClick={handleAddition}
           >
             +
           </button>
         </div>
-        <button className="bg-blue-500 p-3 rounded-md text-white   my-2">
-          Add to cart
-        </button>
+        {!itemInCart ? (
+          <button
+            className="bg-blue-500 p-3 rounded-md text-white my-2 "
+            onClick={handleAddingItem}
+            type="button"
+          >
+            Add to cart <FaBagShopping className="inline" />
+          </button>
+        ) : (
+          <button
+            className=" my-2 rounded-md p-3 text-white bg-blue-500"
+            onClick={handleAddingItem}
+            type="button"
+          >
+            Remove from cart
+          </button>
+        )}
       </div>
     </div>
   );
 }
+Item.propTypes = {
+  title: PropTypes.string,
+  img: PropTypes.string,
+  price: PropTypes.number,
+  quantity: PropTypes.number,
+  id: PropTypes.number,
+  addItem: PropTypes.func,
+  deleteItem: PropTypes.func,
+};

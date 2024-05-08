@@ -1,6 +1,10 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import UserContext from "../../Layouts/MainLayout";
+import { useContext } from "react";
 export default function CartFooter() {
+  const { cartItems, addToCart, removeFromCart } = useContext(UserContext);
+
   return (
     <div className="card-footer">
       <div className="line"></div>
