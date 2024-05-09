@@ -7,7 +7,7 @@ export default function CartItem(props) {
         <img src={img} alt="" />
       </div>
       <div className="item-title">
-        <p>{title}</p>
+        <p className="">{title}</p>
       </div>
       <div className="quantity">
         <input type="text" value={quantity} />

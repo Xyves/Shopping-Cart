@@ -2,8 +2,8 @@ import { NavLink } from "react-router-dom";
 import shoppingVector from "../assets/img/shopping-vector.jpg";
 export default function Home() {
   return (
-    <div className="w-full  flex justify-center text-black bg-main flex-1 items-center">
-      <div className="left-side h-full w-1/2">
+    <div className="w-full flex-wrap flex justify-center wrap text-black bg-main flex-1 items-center">
+      <div className="left-side h-full w-1/2 ">
         <h1 className="text-[#786dff] text-7xl mb-5 word tracking-wide">
           Electro
         </h1>
@@ -16,8 +16,16 @@ export default function Home() {
           </button>
         </NavLink>
       </div>
-      <div className="image w-1/3">
-        <img src={shoppingVector} alt="shopping woman" />
+      <div className="w-1/3 hidden xl:block ">
+        <img src={shoppingVector} alt="shopping woman" className="w-full" />
+      </div>
+      {/* Responsive classes to handle smaller screen sizes */}
+      <div className="w-full block xl:hidden mt-4 h-64">
+        <img
+          src={shoppingVector}
+          alt="shopping woman"
+          className="w-full max-h-full"
+        />
       </div>
     </div>
   );

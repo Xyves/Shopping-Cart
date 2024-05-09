@@ -12,7 +12,7 @@ export default function Item(props) {
   }
 
   const { cartItems, addToCart } = context;
-  const { title, img, price, id } = props;
+  const { title, img, price, id, rating, reviews } = props;
   const [inputValue, setInputValue] = useState(1);
   const [itemInCart, setItemInCart] = useState(false);
 
@@ -58,12 +58,14 @@ export default function Item(props) {
         <img src={img} alt="" className=" h-34 my-5" />
       </div>
       <div className="middle items-center self-start">
-        <p className="font-bold text-xl ">{title}</p>
+        <p className="font-bold text-base md:text-3xl px-1 py-1 sm:text-base">
+          {title}
+        </p>
         <div className="rating">
-          <div className="rating-stars"></div>
-          <div className="rating-num"></div>
+          <div className="rating-stars inline">{rating}⭐</div>
+          <div className="rating-num inline">({reviews})</div>
         </div>
-        <div className="price">{price}$</div>
+        <div className="price font-bold text-2xl ml-1">{price}$</div>
       </div>
       <div className="bottom flex align-center flex-col justify-center">
         <div className="quantity">
@@ -121,4 +123,6 @@ Item.propTypes = {
   id: PropTypes.number,
   addItem: PropTypes.func,
   deleteItem: PropTypes.func,
+  rating: PropTypes.number,
+  reviews: PropTypes.number,
 };
