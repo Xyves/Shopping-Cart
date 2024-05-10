@@ -1,12 +1,9 @@
 import CartEmpty from "./CartEmpty";
 import CartItem from "./CartItem";
-import React, { useContext } from "react";
-import UserContext from "../../UserContext";
 
-export default function Cart({ cartStatus }) {
-  console.log("Context from useContext:", useContext(UserContext));
-  const { cartItems, removeFromCart } = useContext(UserContext);
-  const isCartEmpty = cartItems.length === 0;
+export default function Cart({ cartStatus, cartItems }) {
+  console.log(cartItems);
+  let isCartEmpty = cartItems.length === 0 && cartItems !== undefined;
 
   return cartStatus ? (
     <div className="cart w-21 p-2 right-0 flex flex-col top-24 mt-1 mr-1 text-white rounded-lg bg-[#0e0f10] h-24 absolute ">
