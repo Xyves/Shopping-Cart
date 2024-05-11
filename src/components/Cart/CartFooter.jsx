@@ -1,14 +1,21 @@
-import React from "react";
+import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
-import UserContext from "../../Layouts/MainLayout";
-import { useContext } from "react";
-export default function CartFooter() {
-  const { cartItems, addToCart, removeFromCart } = useContext(UserContext);
 
+export default function CartFooter(props) {
+  const { cartItems } = props;
+  const [totalVal, setTotalVal] = useState(0);
+
+  useEffect(() => {
+    const newTotalItems = cartItems.reduce(
+      (total, item) => total + item.quantity * item.price,
+      0
+    );
+    setTotalVal(newTotalItems.toFixed(2));
+  }, [cartItems]);
   return (
-    <div className="card-footer">
+    <div className="card-footer  mt-6">
       <div className="line"></div>
-      <p>Total price: $ {}</p>
+      <p className="text-red text-3xl">Total price: $ {totalVal}</p>
       <button className="py-2 px-6 bg-orange-300">
         <NavLink to="/checkout">View checkout</NavLink>
       </button>

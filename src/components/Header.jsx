@@ -4,26 +4,31 @@ import Logo from "../assets/img/logo.png";
 import Icon from "@mdi/react";
 import { mdiBasket } from "@mdi/js";
 import PropTypes from "prop-types";
+import UserContext from "../UserContext";
 
-export default function Header({ cartStatus, updateCartStatus }) {
+export default function Header({ cartStatus, updateStatus }) {
   const navItems = [
     ["/", "home"],
     ["/shop", "shop"],
     ["/contact", "contact"],
   ];
   const handleClick = () => {
+    console.log(`Before cartStatus: ${cartStatus}`);
+    updateStatus(!cartStatus);
     console.log(`Current cartStatus: ${cartStatus}`);
-    updateCartStatus(!cartStatus);
   };
   return (
     <header className="">
-      <div className="wrap flex items-center justify-center mr-5">
+      <div className="wrap flex items-center justify-center mr-5 md:text-lg lg:text-2xl">
         <NavLink className=" header inline mr-auto ml-5" to="/">
           <img src={Logo} alt="shop logo" className=" w-28 h-24" />
         </NavLink>
-        <ul className="text-lg  p-3 text-white">
+        <ul className="  p-3 text-white">
           {navItems.map(([url, title], index) => (
-            <li key={index} className="inline mx-7 text-3xl ">
+            <li
+              key={index}
+              className="inline mx-7  lg:text-3xl md:text-2xl sm:text-base"
+            >
               <NavLink to={url} className="border-red-500">
                 {title}
               </NavLink>

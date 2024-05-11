@@ -9,10 +9,11 @@ module.exports = {
           "linear-gradient(45deg, hsla(176, 61%, 87%, 1) 0%, hsla(0, 0%, 100%, 1) 87%, hsla(0, 0%, 94%, 1) 95%);",
       },
       colors: {
-        main: "white",
+        main: "rgb(8, 48, 69)",
         cardBorder: "#454a4c",
         footer: "#05060a",
         itemBorder: "#454a4c",
+        item: "rgb(189, 160, 104)",
       },
     },
     borderWidth: {
@@ -23,6 +24,9 @@ module.exports = {
       4: "4px",
       6: "6px",
       8: "8px",
+    },
+    borderColor: {
+      item: "rgb(189, 160, 104)",
     },
   },
   plugins: [],

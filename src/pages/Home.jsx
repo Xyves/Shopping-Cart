@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import shoppingVector from "../assets/img/shopping-vector.jpg";
+import shoppingVector from "../assets/img/shopping-vector.png";
 export default function Home() {
   return (
     <div className="w-full flex-wrap flex justify-center wrap text-black bg-main flex-1 items-center">
@@ -11,7 +11,7 @@ export default function Home() {
           Shop Smarter, Not Harder
         </h2>
         <NavLink to="/shop">
-          <button className="py-3 px-5 bg-purple-300 rounded-lg text-white">
+          <button className="py-3 px-5 bg-purple-300 rounded-lg text-black">
             Shop now
           </button>
         </NavLink>

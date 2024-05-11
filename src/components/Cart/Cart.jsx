@@ -1,12 +1,16 @@
 import CartEmpty from "./CartEmpty";
+import CartFooter from "./CartFooter";
 import CartItem from "./CartItem";
 
-export default function Cart({ cartStatus, cartItems }) {
+export default function Cart(props) {
+  const { cartStatus, cartItems, removeFromCart } = props;
   console.log(cartItems);
   let isCartEmpty = cartItems.length === 0 && cartItems !== undefined;
-
+  const handleDeleteItem = (itemId) => {
+    removeFromCart(itemId);
+  };
   return cartStatus ? (
-    <div className="cart w-21 p-2 right-0 flex flex-col top-24 mt-1 mr-1 text-white rounded-lg bg-[#0e0f10] h-24 absolute ">
+    <div className="cart  p-10 right-0 flex flex-col top-24 mt-1 mr-1 text-white rounded-lg bg-[#0e0f10] absolute ">
       {isCartEmpty ? (
         <CartEmpty />
       ) : (
@@ -19,9 +23,11 @@ export default function Cart({ cartStatus, cartItems }) {
                 quantity={item.quantity}
                 img={item.img}
                 id={item.id}
+                handleDeleteItem={handleDeleteItem}
               />
             </li>
           ))}
+          <CartFooter cartItems={cartItems} />
         </ul>
       )}
     </div>
