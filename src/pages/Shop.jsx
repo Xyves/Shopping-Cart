@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import ProductCard from "../components/ProductCard";
+import React from "react";
+const MemoizedProductCard = React.memo(ProductCard);
 export default function Shop() {
   const [items, setItems] = useState([]);
   useEffect(() => {
@@ -12,23 +14,24 @@ export default function Shop() {
         console.error("Error fetching data:", error);
       });
   }, []);
-  console.log(items);
-
   return (
-    <div className="flex justify-center bg-main">
-      <div className="grid  justify-items-center gap-5 content-center justify-center shopContainer w-[80%] grid-cols-4	 mb-24">
-        {items.map((item) => (
-          <ProductCard
-            key={item.id}
-            title={item.title}
-            price={item.price}
-            desc={item.description}
-            rating={item.rating.rate}
-            reviews={item.rating.count}
-            img={item.image}
-          ></ProductCard>
-        ))}
-        <p>Shop</p>
+    <div className=" bg-main">
+      <div className="justify-center flex">
+        <div className=" sm:grid-cols-2 md:grid-cols-3 grid justify-items-center gap-5 content-center justify-center shopContainer w-[80%] lg:grid-cols-4 	 mb-24">
+          {items.map((item) => (
+            <MemoizedProductCard
+              key={item.id}
+              title={item.title}
+              price={item.price}
+              desc={item.description}
+              rating={item.rating.rate}
+              reviews={item.rating.count}
+              id={item.id}
+              img={item.image}
+              quantity={0}
+            ></MemoizedProductCard>
+          ))}
+        </div>
       </div>
     </div>
   );

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { FaBagShopping } from "react-icons/fa6";
 import { useOutletContext } from "react-router-dom";
 
@@ -6,28 +6,23 @@ import PropTypes from "prop-types";
 export default function Item(props) {
   const context = useOutletContext();
 
-  if (!context) {
-    console.error("useOutletContext is returning null");
-    return null; // or handle the case when context is null
-  }
-
-  const { cartItems, addToCart } = context;
+  const { cartItems, addToCart, removeFromCart } = context;
+  console.log(context);
   const { title, img, price, id, rating, reviews } = props;
   const [inputValue, setInputValue] = useState(1);
-  const [itemInCart, setItemInCart] = useState(false);
-
-  const handleAddingItem = (event) => {
-    console.log(inputValue);
-    event.preventDefault();
+  const itemInCart = cartItems.some((item) => item.id === id);
+  const handleRemovingItem = () => {
+    removeFromCart(id);
+  };
+  const handleAddingItem = () => {
     const newCartItem = {
       id,
       title,
       img,
       price,
-      quantity: inputValue,
+      quantity: parseInt(inputValue),
     };
     addToCart(newCartItem);
-    setItemInCart(!itemInCart);
   };
 
   const handleInputChange = (e) => {
@@ -53,25 +48,26 @@ export default function Item(props) {
     currentValue > 1 ? setInputValue(String(currentValue - 1)) : null;
   };
   return (
-    <div className="card flex flex-col   justify-center items-center border-itemBorder border-2 border-solid my-5">
-      <div className="top  w-1/3  flex max-h-1/3 mt-2">
-        <img src={img} alt="" className=" h-34 my-5" />
+    <div className=" flex flex-col items-center  border-item border-2 border-solid my-5 rounded-xl hover:bg-gray-300 hover:text-black text-white group">
+      <div className="top w-1/3 md:max-h-48 lg:min-h-42 min-h-32 flex mt-4  border-1 px-1">
+        <img src={img} alt="item" className="  my-5 rounded-md" />
       </div>
-      <div className="middle items-center self-start">
-        <p className="font-bold text-base md:text-3xl px-1 py-1 sm:text-base">
+      <div className="middle  self-start ml-1">
+        <p className="font-bold text-base md:text-2xl w-full max-h-16 overflow-y-hidden  py-1 sm:text-base">
           {title}
         </p>
         <div className="rating">
           <div className="rating-stars inline">{rating}⭐</div>
           <div className="rating-num inline">({reviews})</div>
         </div>
-        <div className="price font-bold text-2xl ml-1">{price}$</div>
+        <div className="price font-bold text-2xl ml-1">${price}</div>
       </div>
-      <div className="bottom flex align-center flex-col justify-center">
-        <div className="quantity">
+      <div className="">
+        <div className="ml-3">
           <button
             onClick={handleSubtraction}
-            className="border-1 border-solid border-black rounded-full bg-green-100 p-1"
+            className="border-1 border-solid border-black rounded-full bg-item p-1"
+            disabled={itemInCart}
           >
             -
           </button>
@@ -81,22 +77,23 @@ export default function Item(props) {
             min="1"
             max="40"
             step="1"
-            className="mx-1 p-2 border-1 border-solid border-black"
+            className="mx-1 p-2 border-1 border-solid border-item rounded-lg bg-main  group-hover:bg-white"
             placeholder="1"
             value={inputValue}
             onChange={handleInputChange}
             disabled={itemInCart}
           />
           <button
-            className="border-1 border-solid border-black rounded-full bg-green-100 p-1"
+            className="border-1 border-solid border-black rounded-full 0 p-1 bg-item "
             onClick={handleAddition}
+            disabled={itemInCart}
           >
             +
           </button>
         </div>
         {!itemInCart ? (
           <button
-            className="bg-blue-500 p-3 rounded-md text-white my-2 "
+            className="bg-item p-3 rounded-md text-white my-2 "
             onClick={handleAddingItem}
             type="button"
           >
@@ -105,7 +102,7 @@ export default function Item(props) {
         ) : (
           <button
             className=" my-2 rounded-md p-3 text-white bg-blue-500"
-            onClick={handleAddingItem}
+            onClick={() => handleRemovingItem(id)}
             type="button"
           >
             Remove from cart
