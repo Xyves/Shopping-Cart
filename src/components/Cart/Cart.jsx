@@ -10,7 +10,7 @@ export default function Cart(props) {
     removeFromCart(itemId);
   };
   return cartStatus ? (
-    <div className="cart  p-10 right-0 flex flex-col top-24 mt-1 mr-1 text-white rounded-lg bg-[#0e0f10] absolute ">
+    <div className="cart p-10 right-0 flex flex-col top-24 mt-1 mr-1 text-white rounded-lg bg-[#0e0f10] absolute ">
       {isCartEmpty ? (
         <CartEmpty />
       ) : (

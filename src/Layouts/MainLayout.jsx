@@ -2,10 +2,10 @@ import { useState } from "react";
 import Header from "../components/Header";
 import { Outlet } from "react-router-dom";
 import { createContext } from "react";
-export const UserContext = createContext();
-
 import Footer from "../components/Footer";
 import Cart from "../components/Cart/Cart";
+export const UserContext = createContext();
+
 export default function MainLayout() {
   const [cartStatus, setCartStatus] = useState(false);
   const [cartItems, setCartItems] = useState([]);
@@ -25,14 +25,17 @@ export default function MainLayout() {
       setCartItems((prevItems) => [...prevItems, item]);
     }
   };
+
   const removeFromCart = (itemId) => {
     setCartItems((prevItems) =>
       prevItems.filter((cartItem) => cartItem.id !== itemId)
     );
   };
+
   const updateStatus = (newStatus) => {
     setCartStatus(newStatus);
   };
+
   const contextValue = {
     cartItems,
     addToCart,
@@ -40,7 +43,7 @@ export default function MainLayout() {
     cartStatus,
     updateStatus,
   };
-  console.log("Context Value:", contextValue);
+
   return (
     <UserContext.Provider value={contextValue}>
       <div className="flex flex-col min-h-[100vh]">

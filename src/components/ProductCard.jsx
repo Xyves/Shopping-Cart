@@ -5,15 +5,16 @@ import { useOutletContext } from "react-router-dom";
 import PropTypes from "prop-types";
 export default function Item(props) {
   const context = useOutletContext();
-
   const { cartItems, addToCart, removeFromCart } = context;
-  console.log(context);
   const { title, img, price, id, rating, reviews } = props;
   const [inputValue, setInputValue] = useState(1);
+
   const itemInCart = cartItems.some((item) => item.id === id);
+
   const handleRemovingItem = () => {
     removeFromCart(id);
   };
+
   const handleAddingItem = () => {
     const newCartItem = {
       id,
@@ -39,20 +40,23 @@ export default function Item(props) {
     }
     setInputValue(value);
   };
+
   const handleAddition = () => {
     const currentValue = Number(inputValue);
     currentValue < 99 ? setInputValue(String(currentValue + 1)) : null;
   };
+
   const handleSubtraction = () => {
     const currentValue = Number(inputValue);
     currentValue > 1 ? setInputValue(String(currentValue - 1)) : null;
   };
+
   return (
-    <div className=" flex flex-col items-center  border-item border-2 border-solid my-5 rounded-xl hover:bg-gray-300 hover:text-black text-white group">
+    <div className=" flex flex-col items-center my-5 rounded-xl hover:bg-gray-300 hover:text-black text-white group border-item border-2 border-solid">
       <div className="top w-1/3 md:max-h-48 lg:min-h-42 min-h-32 flex mt-4  border-1 px-1">
         <img src={img} alt="item" className="  my-5 rounded-md" />
       </div>
-      <div className="middle  self-start ml-1">
+      <div className="self-start ml-1">
         <p className="font-bold text-base md:text-2xl w-full max-h-16 overflow-y-hidden  py-1 sm:text-base">
           {title}
         </p>
@@ -62,7 +66,7 @@ export default function Item(props) {
         </div>
         <div className="price font-bold text-2xl ml-1">${price}</div>
       </div>
-      <div className="">
+      <div>
         <div className="ml-3">
           <button
             onClick={handleSubtraction}
@@ -93,7 +97,7 @@ export default function Item(props) {
         </div>
         {!itemInCart ? (
           <button
-            className="bg-item p-3 rounded-md text-white my-2 "
+            className="bg-item p-3 rounded-md text-white my-2"
             onClick={handleAddingItem}
             type="button"
           >
@@ -101,7 +105,7 @@ export default function Item(props) {
           </button>
         ) : (
           <button
-            className=" my-2 rounded-md p-3 text-white bg-blue-500"
+            className="my-2 rounded-md p-3 text-white bg-blue-500"
             onClick={() => handleRemovingItem(id)}
             type="button"
           >

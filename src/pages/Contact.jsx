@@ -1,14 +1,14 @@
 import customerVector from "../assets/img/customer-vector.jpg";
 export default function Contact() {
   return (
-    <div className="w-full flex-wrap flex justify-center wrap text-white bg-main flex-1 items-center">
-      <div className="right_pane h-1/5 w-1/3  inline-block mr-32 ">
+    <div className=" flex flex-wrap  justify-center w-full items-center text-white bg-main flex-1 ">
+      <div className="h-1/5 w-1/3 mr-32 inline-block">
         <img src={customerVector} alt="" className="rounded-lg" />
       </div>
       <div className="form flex-wrap flex justify-around items-start">
         <form action="SENT">
           <fieldset>
-            <legend className="text-center py-1 text-3xl">Contact us</legend>
+            <legend className=" py-1 text-3xl text-center">Contact us</legend>
             <p className="">
               <label htmlFor="firstName" className="px-5 inline-block min-w-32">
                 First Name:
@@ -17,7 +17,7 @@ export default function Contact() {
                 type="text"
                 placeholder="Your name"
                 id="firstName"
-                className="border-black border-solid border-1 py-2 px-1 my-3 w-72 text-black"
+                className="py-2 px-1 my-3 w-72 border-black border-solid border-1 text-black"
               />
             </p>
 

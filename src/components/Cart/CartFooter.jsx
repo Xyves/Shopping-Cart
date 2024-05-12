@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
+import PropTypes from "prop-types";
 
 export default function CartFooter(props) {
   const { cartItems } = props;
@@ -15,10 +16,13 @@ export default function CartFooter(props) {
   return (
     <div className="card-footer  mt-6">
       <div className="line"></div>
-      <p className="text-red text-3xl">Total price: $ {totalVal}</p>
+      <p className="text-red text-3xl">Total price: ${totalVal}</p>
       <button className="py-2 px-6 bg-orange-300">
         <NavLink to="/checkout">View checkout</NavLink>
       </button>
     </div>
   );
 }
+CartFooter.propTypes = {
+  cartItems: PropTypes.array,
+};
