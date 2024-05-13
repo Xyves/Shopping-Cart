@@ -7,7 +7,7 @@ export default function Home() {
         <h1 className="text-[#786dff] text-7xl mb-5 word tracking-wide">
           Electro
         </h1>
-        <h2 className="text-blue-600 text-4xl mb-4">
+        <h2 className="text-blue-300 text-4xl mb-4">
           Shop Smarter, Not Harder
         </h2>
         <NavLink to="/shop">

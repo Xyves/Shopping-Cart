@@ -52,19 +52,19 @@ export default function Item(props) {
   };
 
   return (
-    <div className=" flex flex-col items-center my-5 rounded-xl hover:bg-gray-300 hover:text-black text-white group border-item border-2 border-solid">
-      <div className="top w-1/3 md:max-h-48 lg:min-h-42 min-h-32 flex mt-4  border-1 px-1">
-        <img src={img} alt="item" className="  my-5 rounded-md" />
+    <div className=" flex flex-col items-center my-5 rounded-xl hover:bg-gray-300 hover:text-black text-white group border-item border-2 border-solid w-full">
+      <div className="top  md:max-h-48 lg:min-h-42 h-36 flex mt-4 w-2/4 border-1 px-1">
+        <img src={img} alt="item" className="my-5 rounded-md" />
       </div>
-      <div className="self-start ml-1">
-        <p className="font-bold text-base md:text-2xl w-full max-h-16 overflow-y-hidden  py-1 sm:text-base">
+      <div className="self-start ml-1 w-full px-2">
+        <p className="font-bold text-base md:text-2xl overflow-ellipsis max-h-16  overflow-hidden py-1 sm:text-base ">
           {title}
         </p>
-        <div className="rating">
+        <div className="rating my-1 p-1">
           <div className="rating-stars inline">{rating}⭐</div>
           <div className="rating-num inline">({reviews})</div>
         </div>
-        <div className="price font-bold text-2xl ml-1">${price}</div>
+        <div className="price font-bold text-2xl ml-1 my-2">${price}</div>
       </div>
       <div>
         <div className="ml-3">

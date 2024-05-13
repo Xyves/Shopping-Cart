@@ -17,7 +17,7 @@ export default function Shop() {
   return (
     <div className=" bg-main">
       <div className="justify-center flex">
-        <div className=" sm:grid-cols-2 md:grid-cols-3 grid justify-items-center gap-5 content-center justify-center shopContainer w-[80%] lg:grid-cols-4 	 mb-24">
+        <div className=" sm:grid-cols-2 md:grid-cols-3 grid justify-items-center gap-8 content-center justify-center shopContainer w-[70%] lg:grid-cols-4 mb-24">
           {items.map((item) => (
             <MemoizedProductCard
               key={item.id}
