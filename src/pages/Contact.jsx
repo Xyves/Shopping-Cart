@@ -1,7 +1,7 @@
 import customerVector from "../assets/img/customer-vector.jpg";
 export default function Contact() {
   return (
-    <div className=" flex flex-wrap  justify-center w-full items-center text-white bg-main flex-1 ">
+    <div className="flex flex-wrap justify-center w-full items-center text-white bg-main flex-1 ">
       <div className="h-1/5 w-1/3 mr-32 inline-block">
         <img src={customerVector} alt="" className="rounded-lg" />
       </div>
