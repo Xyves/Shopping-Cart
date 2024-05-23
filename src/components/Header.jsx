@@ -45,4 +45,5 @@ export default function Header({ cartStatus, updateStatus }) {
 Header.propTypes = {
   cartStatus: PropTypes.bool,
   updateCartStatus: PropTypes.func,
+  updateStatus: PropTypes.func,
 };
