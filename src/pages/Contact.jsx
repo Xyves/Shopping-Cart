@@ -61,8 +61,11 @@ export default function Contact() {
             </p>
           </fieldset>
           <button
-            className="text-bold text-white bg-gray-800 px-9 py-4 text-center  sm:float-one md:float-right rounded-md active:bg-gray-600"
-            type="button"
+            className="text-bold text-white bg-blue-700 px-9 py-4 text-center  sm:float-one md:float-right rounded-md active:bg-blue-400"
+            type="reset"
+            onClick={() => {
+              alert("Form is submitted");
+            }}
           >
             sent it
           </button>

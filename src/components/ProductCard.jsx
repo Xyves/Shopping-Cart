@@ -52,7 +52,7 @@ export default function Item(props) {
   };
 
   return (
-    <div className=" flex flex-col items-center my-5 rounded-xl hover:bg-gray-300 hover:text-black text-white group border-item border-2 border-solid w-full">
+    <div className=" flex flex-col items-center my-5 rounded-xl hover:bg-gray-300 hover:text-black text-white group border-blue-300 border-2 border-solid w-full">
       <div className="top  md:max-h-48 lg:min-h-42 h-36 flex mt-4 w-2/4 border-1 px-1">
         <img src={img} alt="item" className="my-5 rounded-md" />
       </div>

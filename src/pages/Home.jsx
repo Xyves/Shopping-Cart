@@ -16,11 +16,10 @@ export default function Home() {
           </button>
         </NavLink>
       </div>
-      <div className="w-1/3 hidden xl:block ">
+      <div className="w-1/3 lg:block hidden">
         <img src={shoppingVector} alt="shopping woman" className="w-full" />
       </div>
-      {/* Responsive classes to handle smaller screen sizes */}
-      <div className="w-full block xl:hidden mt-4 h-64">
+      <div className="w-3/4 block lg:hidden h-80">
         <img
           src={shoppingVector}
           alt="shopping woman"
