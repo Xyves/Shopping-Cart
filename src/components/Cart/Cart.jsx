@@ -3,8 +3,8 @@ import CartFooter from "./CartFooter";
 import CartItem from "./CartItem";
 
 export default function Cart(props) {
-  const { cartStatus, cartItems, removeFromCart } = props;
-  console.log(cartItems);
+  const { cartStatus, cartItems } = props;
+  const { removeFromCart } = props.context;
   let isCartEmpty = cartItems.length === 0 && cartItems !== undefined;
   const handleDeleteItem = (itemId) => {
     removeFromCart(itemId);
@@ -23,7 +23,7 @@ export default function Cart(props) {
                 quantity={item.quantity}
                 img={item.img}
                 id={item.id}
-                handleDeleteItem={handleDeleteItem}
+                removeFromCart={removeFromCart}
               />
             </li>
           ))}

@@ -4,9 +4,7 @@ import { TiDelete } from "react-icons/ti";
 
 import { useContext } from "react";
 export default function CartItem(props) {
-  const { title, img, price, quantity, id, handleRemovingItem } = props;
-  const { removeFromCart, cartItems } = useContext(UserContext);
-
+  const { title, img, price, quantity, id, removeFromCart } = props;
   const fullPrice = () => {
     return price * quantity;
   };
@@ -28,7 +26,10 @@ export default function CartItem(props) {
       <TiDelete
         className="bg-red-900"
         type="button"
-        onClick={handleRemovingItem}
+        onClick={() => {
+          removeFromCart(id);
+          console.log("Deleting");
+        }}
         size={25}
       />
     </div>
