@@ -15,7 +15,7 @@ export default function Header({ cartStatus, updateStatus }) {
     updateStatus(!cartStatus);
   };
   return (
-    <header>
+    <header data-testid="main-header">
       <div className="flex wrap items-center justify-center mr-5 md:text-lg lg:text-2xl">
         <NavLink className="inline mr-auto ml-5" to="/">
           <img src={Logo} alt="shop logo" className=" w-28 h-24" />

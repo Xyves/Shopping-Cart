@@ -10,8 +10,13 @@ export default function Contact() {
           <fieldset>
             <legend className=" py-1 text-3xl text-center">Contact us</legend>
             <p className="">
-              <label htmlFor="firstName" className="px-5 inline-block min-w-32">
-                First Name:
+              <label
+                className="px-5 inline-block min-w-32"
+                htmlFor="firstName"
+                aria-label="project name"
+                name="project-name"
+              >
+                Name:
               </label>
               <input
                 type="text"
@@ -22,7 +27,12 @@ export default function Contact() {
             </p>
 
             <p>
-              <label htmlFor="email" className="px-5 inline-block min-w-32">
+              <label
+                htmlFor="email"
+                className="px-5 inline-block min-w-32 "
+                aria-label="project email"
+                name="project email"
+              >
                 Email:
               </label>
               <input
@@ -36,6 +46,8 @@ export default function Contact() {
               <label
                 htmlFor="phoneNumber"
                 className="px-5 inline-block min-w-32"
+                aria-label="project phone"
+                name="project-phone"
               >
                 Phone:
               </label>
@@ -49,10 +61,10 @@ export default function Contact() {
               />
             </p>
             <p>
-              <label htmlFor="s"></label>
+              <label htmlFor="text" aria-label="project text"></label>
               <textarea
-                name=""
-                id=""
+                name="project-text"
+                id="text"
                 cols="32"
                 rows="10"
                 className="border-black border-solid border-1  px-1 py-2 my-5 w-72  md:float-right sm:float-none resize-none text-black"
@@ -63,6 +75,7 @@ export default function Contact() {
           <button
             className="text-bold text-white bg-blue-700 px-9 py-4 text-center  sm:float-one md:float-right rounded-md active:bg-blue-400"
             type="reset"
+            aria-label="project button"
             onClick={() => {
               alert("Form is submitted");
             }}
