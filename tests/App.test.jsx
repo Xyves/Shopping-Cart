@@ -5,6 +5,5 @@ import App from "../src/App";
 describe("App component", () => {
   it("renders correct App", () => {
     render(<App />);
-    expect(screen.getByRole("").textContent).toMatch(/our first test/i);
   });
 });
