@@ -1,8 +1,6 @@
 import PropTypes from "prop-types";
-import UserContext from "../../UserContext";
 import { TiDelete } from "react-icons/ti";
 
-import { useContext } from "react";
 export default function CartItem(props) {
   const { title, img, price, quantity, id, removeFromCart } = props;
   const fullPrice = () => {
