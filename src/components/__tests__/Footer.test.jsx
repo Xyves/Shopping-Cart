@@ -1,15 +1,15 @@
 import { describe, it, expect } from "vitest";
 import { render, screen } from "@testing-library/react";
-import Header from "../src/components/Header.jsx";
+import Footer from "../Footer.jsx";
 import { MemoryRouter } from "react-router-dom";
 describe("Navbar", () => {
   it("Renders a navbar", () => {
     render(
       <MemoryRouter>
-        <Header />
+        <Footer />
       </MemoryRouter>
     );
-    const headerElement = screen.getByTestId("main-header");
-    expect(headerElement).toBeInTheDocument();
+    const footerElement = screen.getByTestId("main-footer");
+    expect(footerElement).toBeInTheDocument();
   });
 });

@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
-import Contact from "../src/pages/Contact";
+import Contact from "../Contact";
 import { describe, test, expect } from "vitest";
 
 describe("Contact component", () => {
