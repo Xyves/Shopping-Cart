@@ -9,6 +9,7 @@ export default function Shop() {
       .then((res) => res.json())
       .then((json) => {
         setItems(json);
+        console.log(json);
       })
       .catch((error) => {
         console.error("Error fetching data:", error);
