@@ -3,7 +3,7 @@ import { render, screen } from "@testing-library/react";
 import Footer from "../Footer.jsx";
 import { MemoryRouter } from "react-router-dom";
 describe("Navbar", () => {
-  it("Renders a navbar", () => {
+  it("Renders a footer", () => {
     render(
       <MemoryRouter>
         <Footer />
