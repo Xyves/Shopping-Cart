@@ -14,13 +14,16 @@ module.exports = {
   },
 
   // Setup files before Jest tests are run
-  setupFilesAfterEnv: ["@testing-library/jest-dom/extend-expect"],
+  setupFiles: ["./tests/setup.js"],
+
+  // Setup files after environment is set up
+  setupFilesAfterEnv: [
+    "@testing-library/jest-dom/extend-expect",
+    "./jest.setup.js",
+  ],
 
   // A map from regular expressions to paths to transformers
   transformIgnorePatterns: ["<rootDir>/node_modules/"],
-
-  // A list of paths to modules that run some code to configure or set up the testing framework
-  setupFiles: ["./jest.setup.js"], // If you have any setup files
 
   // An array of regexp pattern strings that are matched against all test paths before executing the test
   testPathIgnorePatterns: ["<rootDir>/.next/", "<rootDir>/node_modules/"],

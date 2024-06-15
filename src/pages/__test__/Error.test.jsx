@@ -14,7 +14,12 @@ const MockFunction = () => {
 describe("Error page", () => {
   it("renders the error page", async () => {
     render(<MockFunction />);
-    const heading = screen.getByRole("h1");
+    const heading = screen.getAllByRole("heading", { level: 1 })[0];
+    const heading2 = screen.getAllByRole("heading", { level: 2 })[0];
+    const heading3 = screen.getAllByRole("heading", { level: 3 })[0];
+    console.log(heading);
     expect(heading).toBeInTheDocument();
+    expect(heading2).toBeInTheDocument();
+    expect(heading3).toBeInTheDocument();
   });
 });

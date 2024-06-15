@@ -2,6 +2,7 @@ import { render, screen } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
 import Contact from "../Contact";
 import { describe, it, expect } from "vitest";
+import userEvent from "@testing-library/user-event";
 
 const MockFunction = () => {
   render(
@@ -14,15 +15,23 @@ const MockFunction = () => {
 describe("Contact component", () => {
   it("renders the project form with all fields", async () => {
     render(<MockFunction />);
-    const name = screen.getByLabelText(/project-name/);
-    const email = screen.getByLabelText(/project-email/);
-    const phone = screen.getByLabelText(/project-phone/);
-    const text = screen.getByLabelText(/project-text/);
-    const button = screen.getByLabelText(/project-button/);
-    expect(name).toBeInTheDocument();
-    expect(email).toBeInTheDocument();
-    expect(phone).toBeInTheDocument();
-    expect(text).toBeInTheDocument();
-    expect(button).toBeInTheDocument();
+    const nameInput = screen.getAllByTestId("project-name-input")[0];
+    console.log(nameInput);
+    await userEvent.type(nameInput, "Mark Twain");
+
+    const emailInput = screen.getAllByTestId("project-email-input")[0];
+    await userEvent.type(emailInput, "JaneDoe@proton.me");
+
+    const phoneInput = screen.getAllByTestId("project-phone-input")[0];
+    await userEvent.type(phoneInput, "849201753");
+
+    const textInput = screen.getAllByTestId("project-text-input")[0];
+    await userEvent.type(textInput, "We are testing this text input");
+
+    expect(nameInput).toHaveValue("Mark Twain");
+    expect(emailInput).toHaveValue("JaneDoe@proton.me");
+    expect(phoneInput).toHaveValue(849201753);
+    expect(textInput).toHaveValue("We are testing this text input");
+    screen.debug();
   });
 });

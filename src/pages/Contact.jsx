@@ -1,4 +1,6 @@
+import React from "react";
 import customerVector from "../assets/img/customer-vector.jpg";
+
 export default function Contact() {
   return (
     <div className="flex flex-wrap justify-center w-full items-center text-white bg-main flex-1 ">
@@ -9,7 +11,6 @@ export default function Contact() {
         <form action="SENT">
           <fieldset>
             <legend className="py-1 text-3xl text-center">Contact us</legend>
-
             <p className="">
               <label
                 className="px-5 inline-block min-w-32"
@@ -23,7 +24,7 @@ export default function Contact() {
                 placeholder="Your name"
                 id="firstName"
                 className="py-2 px-1 my-3 w-72 border-black border-solid border-1 text-black"
-                aria-label="project-name"
+                data-testid="project-name-input" // Unique test id
               />
             </p>
 
@@ -36,7 +37,7 @@ export default function Contact() {
                 placeholder="Your email"
                 id="email"
                 className="border-black border-solid border-1 py-2 px-1 my-3 w-72 text-black"
-                aria-label="project-email"
+                data-testid="project-email-input" // Unique test id
               />
             </p>
 
@@ -55,7 +56,7 @@ export default function Contact() {
                 className="border-black border-solid border-1 py-2 px-1 my-3 w-72 text-black"
                 minLength={9}
                 maxLength={9}
-                aria-label="project-phone"
+                data-testid="project-phone-input" // Unique test id
               />
             </p>
 
@@ -68,7 +69,7 @@ export default function Contact() {
                 rows="10"
                 className="border-black border-solid border-1  px-1 py-2 my-5 w-72 md:float-right sm:float-none resize-none text-black"
                 placeholder="What can we help you with?"
-                aria-label="project-text"
+                data-testid="project-text-input" // Unique test id
               ></textarea>
             </p>
           </fieldset>
@@ -76,7 +77,7 @@ export default function Contact() {
           <button
             className="text-bold text-white bg-blue-700 px-9 py-4 text-center sm:float-one md:float-right rounded-md active:bg-blue-400"
             type="reset"
-            aria-label="project-button"
+            data-testid="project-button" // Unique test id
             onClick={() => {
               alert("Form is submitted");
             }}

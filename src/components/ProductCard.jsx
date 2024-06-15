@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useState } from "react";
 import { FaBagShopping } from "react-icons/fa6";
 import { useOutletContext } from "react-router-dom";
 
