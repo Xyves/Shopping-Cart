@@ -4,6 +4,7 @@ import { Outlet } from "react-router-dom";
 import { createContext } from "react";
 import Footer from "../components/Footer";
 import Cart from "../components/Cart/Cart";
+
 export const UserContext = createContext();
 
 export default function MainLayout() {

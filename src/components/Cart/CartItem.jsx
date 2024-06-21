@@ -6,7 +6,6 @@ export default function CartItem(props) {
   const fullPrice = () => {
     return price * quantity;
   };
-
   return (
     <div className=" flex h-16 my-3 items-center justify-around border-solid border-1 border-white py-12">
       <div className=" mx-5 h-20 self-center items-center mt-4">

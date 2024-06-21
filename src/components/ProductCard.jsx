@@ -1,14 +1,13 @@
 import { useState } from "react";
 import { FaBagShopping } from "react-icons/fa6";
 import { useOutletContext } from "react-router-dom";
-
 import PropTypes from "prop-types";
+
 export default function Item(props) {
   const context = useOutletContext();
   const { cartItems, addToCart, removeFromCart } = context;
   const { title, img, price, id, rating, reviews } = props;
   const [inputValue, setInputValue] = useState(1);
-
   const itemInCart = cartItems.some((item) => item.id === id);
 
   const handleRemovingItem = () => {

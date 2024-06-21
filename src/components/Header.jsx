@@ -4,6 +4,7 @@ import Icon from "@mdi/react";
 import { mdiBasket } from "@mdi/js";
 import PropTypes from "prop-types";
 import { useState } from "react";
+
 export default function Header({ cartStatus, updateStatus }) {
   const [isNavOpen, setIsNavOpen] = useState(false);
   const navItems = [

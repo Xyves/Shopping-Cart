@@ -2,6 +2,7 @@ import CartEmpty from "./CartEmpty";
 import CartFooter from "./CartFooter";
 import CartItem from "./CartItem";
 import PropTypes from "prop-types";
+
 export default function Cart(props) {
   const { cartStatus, cartItems } = props;
   const { removeFromCart } = props.context;
